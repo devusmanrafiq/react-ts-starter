@@ -1,0 +1,49 @@
+/* All the configs & default css here */
+
+@import url('./styles/custom-scroll-bar.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --family-primary: 'Circular Std';
+  --family-secondary: 'Circular Std Book';
+
+  --color-primary: #19d3c5;
+  --color-secondary: #2d2d2d;
+  --color-white: rgba(255, 255, 255, 0.87);
+
+  --color-gray: #797979;
+
+  --color-warning-500: #ffd95a;
+
+  --color-danger-500: #ef4823;
+
+  --base-font-size: 16px;
+  --base-line-height: 1.3;
+  --base-spacing: 1rem;
+}
+
+body,
+html {
+  font-family: var(--family-primary);
+  font-size: var(--base-font-size);
+  line-height: var(--base-line-height);
+
+  background-color: var(--color-secondary);
+
+  color: var(--color-white);
+  overflow-x: hidden;
+
+  box-sizing: border-box;
+
+  scroll-behavior: smooth;
+
+  margin: 0;
+}
+
+p {
+  font-family: var(--family-secondary);
+  line-height: 1.3;
+}

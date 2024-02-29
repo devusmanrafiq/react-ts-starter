@@ -1,0 +1,12 @@
+
+# configs 
+vite.config.ts
+tsconfig.json
+tsconfig.node.json
+tailwind.config.js
+postcss.config.js
+
+# dir
+node_modules
+dist
+build
