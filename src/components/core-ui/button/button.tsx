@@ -3,10 +3,9 @@ import twc from 'tw-classnames';
 import { IButtonProps } from './IButton';
 
 const classNames = {
-  primary: 'text-white bg-primary px-4 font-secondary',
-  secondary: 'text-white bg-secondary py-4 px-6 font-bold text-lg tracking-wider shadow-primary',
+  primary: 'text-white bg-primary px-4 py-3',
+  secondary: 'text-white bg-none py-3 px-6 border border-black rounded-lg',
   text: '',
-  default: 'font-secondary px-12 py-3 text-secondary border border-secondary-light bg-white',
   rounded: 'rounded-full w-18 h-18 bg-gray-150 flex-centered',
 };
 
