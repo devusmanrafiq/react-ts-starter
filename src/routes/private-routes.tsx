@@ -6,8 +6,7 @@ function PrivateRoutes() {
   return (
     <Routes>
       <Route path='/' element={<Home />} />
-
-      <Route path='*' element={<Navigate to='/error/404' />} />
+      <Route path='*' element={<Navigate to='/' />} />
     </Routes>
   );
 }

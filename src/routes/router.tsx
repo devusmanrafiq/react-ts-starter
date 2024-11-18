@@ -6,25 +6,22 @@ import Layout from 'components/layout/layout';
 
 import ErrorBoundary from 'routes/error-boundary';
 
-import Home from 'pages/home/home';
-
 import { PrivateRoutes } from './private-routes';
 import WithSuspense from './with-suspense';
 
 function AppRoutes() {
   const { currentUser } = useAuth();
+  // const currentUser = true;
 
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route element={<Layout />} errorElement={<ErrorBoundary />}>
-        <Route path='/home' element={<Home />} />
-
         <Route path='logout' element={<SignOut />} />
 
         {currentUser ? (
           <>
             <Route path='/*' element={<PrivateRoutes />} />
-            <Route path='auth/*' element={<Navigate to='/dashboard' />} />
+            <Route path='auth/*' element={<Navigate to='/' />} />
           </>
         ) : (
           <>
@@ -34,14 +31,28 @@ function AppRoutes() {
         )}
 
         {/* Unknown path redirect */}
-        <Route path='*' element={<Navigate to='/home' />} />
+        <Route path='*' element={<Navigate to='/' />} />
       </Route>
-    )
+    ),
+    {
+      future: {
+        v7_relativeSplatPath: true,
+        v7_fetcherPersist: true,
+        v7_normalizeFormMethod: true,
+        v7_partialHydration: true,
+        v7_skipActionErrorRevalidation: true,
+      },
+    }
   );
 
   return (
     <WithSuspense>
-      <RouterProvider router={router} />
+      <RouterProvider
+        router={router}
+        future={{
+          v7_startTransition: true,
+        }}
+      />
     </WithSuspense>
   );
 }
