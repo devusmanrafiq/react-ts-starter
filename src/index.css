@@ -1,17 +1,20 @@
 /* All the configs & default css here */
 
-@import url('./styles/style.css');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('./styles/custom-scroll-bar.css');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --family-primary: 'Poppins', sans-serif;
+  --family-primary: 'Circular Std';
+  --family-secondary: 'Circular Std Book';
 
-  --color-primary: #2366f5;
+  --color-primary: #19d3c5;
   --color-secondary: #2d2d2d;
+  --color-white: rgba(255, 255, 255, 0.87);
+
+  --color-gray: #797979;
 
   --color-warning-500: #ffd95a;
 
@@ -30,7 +33,7 @@ html {
 
   background-color: var(--color-secondary);
 
-  color: rgba(255, 255, 255, 0.801);
+  color: var(--color-white);
   overflow-x: hidden;
 
   box-sizing: border-box;

@@ -1,4 +1,4 @@
-import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
+import { Outlet, Route, Routes } from 'react-router-dom';
 
 import SignIn from 'auth/sign-in';
 import SignUp from 'auth/sign-up';
@@ -10,7 +10,6 @@ function AuthPage() {
         <Route path='sign-in' element={<SignIn />} />
         <Route path='sign-up' element={<SignUp />} />
         <Route index element={<SignIn />} />
-        <Route path='*' element={<Navigate to='/auth' />} />
       </Route>
     </Routes>
   );

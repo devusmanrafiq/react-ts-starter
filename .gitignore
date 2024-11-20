@@ -23,7 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
- *.lock
-
-# env files (can opt-in for committing if needed)
-.env*
+# lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

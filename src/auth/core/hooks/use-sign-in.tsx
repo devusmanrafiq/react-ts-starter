@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
-
-import { useMutation } from '@tanstack/react-query';
+import { useMutation } from 'react-query';
 
 import { ISignInForm } from '../_models';
 import { getUserByToken, login } from '../_requests';
@@ -9,41 +8,26 @@ import { useAuth } from '../auth-context';
 const useSignIn = () => {
   const { saveAuth, setCurrentUser } = useAuth();
 
-  const {
-    mutate: loginMutate,
-    isError: isLoginError,
-    error: loginError,
-    isPending: isLoginPending,
-    isSuccess: isLoginSuccess,
-    data: loginData,
-  } = useMutation({
-    mutationFn: (body: ISignInForm) => login(body),
-  });
-
-  const { mutate: verifyTokenMutate, isPending: isVerifyTokenPending } = useMutation({
-    mutationFn: (token: string) => getUserByToken(token),
-  });
+  const { mutate, isError, error, isLoading, isSuccess, data } = useMutation((body: ISignInForm) => login(body));
+  const { mutate: mutateVerifyToken, isLoading: isLoadingVerifyToken } = useMutation((token: string) =>
+    getUserByToken(token)
+  );
 
   useEffect(() => {
-    if (isLoginSuccess && loginData) {
-      const apiToken = loginData?.data?.api_token;
-      verifyTokenMutate(apiToken, {
+    if (isSuccess && data) {
+      mutateVerifyToken(data?.data?.api_token, {
         onSuccess: (res) => {
           // ✅ Save token to storage
-          saveAuth({ api_token: apiToken });
+          saveAuth({
+            api_token: data?.data?.api_token,
+          });
           setCurrentUser(res?.data);
         },
       });
     }
-  }, [isLoginSuccess, loginData, verifyTokenMutate, saveAuth, setCurrentUser]);
+  }, [data, isSuccess, mutateVerifyToken, saveAuth, setCurrentUser]);
 
-  return {
-    mutate: loginMutate,
-    isError: isLoginError,
-    error: loginError,
-    isPending: isLoginPending,
-    isPendingVerifyToken: isVerifyTokenPending,
-  };
+  return { mutate, isError, error, isLoading, isLoadingVerifyToken };
 };
 
 export default useSignIn;

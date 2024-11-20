@@ -1,15 +1,15 @@
 module.exports = {
   root: true,
-  env: { browser: true, es2022: true },
+  env: { browser: true, es2020: true },
   extends: [
     'eslint:recommended',
     'plugin:import/recommended',
     'plugin:import/typescript',
     'airbnb',
     'airbnb-typescript',
-    'prettier',
     'airbnb/hooks',
     'plugin:jsx-a11y/recommended',
+    'prettier',
     'eslint-config-prettier',
     'plugin:prettier/recommended',
   ],
