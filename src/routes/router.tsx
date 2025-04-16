@@ -29,30 +29,15 @@ function AppRoutes() {
             <Route path='*' element={<Navigate to='/auth' />} />
           </>
         )}
-
         {/* Unknown path redirect */}
         <Route path='*' element={<Navigate to='/' />} />
       </Route>
-    ),
-    {
-      future: {
-        v7_relativeSplatPath: true,
-        v7_fetcherPersist: true,
-        v7_normalizeFormMethod: true,
-        v7_partialHydration: true,
-        v7_skipActionErrorRevalidation: true,
-      },
-    }
+    )
   );
 
   return (
     <WithSuspense>
-      <RouterProvider
-        router={router}
-        future={{
-          v7_startTransition: true,
-        }}
-      />
+      <RouterProvider router={router} />
     </WithSuspense>
   );
 }
