@@ -18,7 +18,7 @@ const getAuth = (): IAuthModel | undefined => {
     const auth: IAuthModel = JSON.parse(lsValue) as IAuthModel;
     if (auth) {
       // You can easily check auth_token expiration also
-      // eslint-disable-next-line consistent-return
+
       return auth;
     }
   } catch (error) {
