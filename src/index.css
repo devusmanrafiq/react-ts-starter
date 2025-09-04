@@ -78,14 +78,18 @@ p {
   .path-fill g > g > path,
   .path-fill g > g > rect,
   .path-fill g > path,
-  .path-fill g > line {
+  .path-fill path,
+  .path-fill g > line,
+  .path-fill line {
     fill: currentColor;
   }
   .path-stroke g > g > line,
   .path-stroke g > g > path,
   .path-stroke g > g > rect,
   .path-stroke g > path,
-  .path-stroke g > line {
+  .path-stroke path,
+  .path-stroke g > line,
+  .path-stroke line {
     stroke: currentColor;
   }
   .shadow-primary-avg {
