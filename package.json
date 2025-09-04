@@ -16,8 +16,12 @@
     "test": "npm run lint && npm run prettier"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": [
-      "npm run lint"
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --max-warnings=0",
+      "prettier --check"
+    ],
+    "src/**/*.{css,scss,md,json}": [
+      "prettier --check"
     ]
   },
   "dependencies": {
