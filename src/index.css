@@ -57,6 +57,17 @@ p {
   --breakpoint-2xl: 90rem; /* 1440px */
   --breakpoint-3xl: 100rem; /* 1600px */
   --breakpoint-4xl: 120rem; /* 1920px */
+
+    /* Container Size */
+  --container-2xs: 20rem; /* 320px */
+  --container-xs: 24rem; /* 384px */
+  --container-sm: 30rem; /* 480px */
+  --container-md: 48rem; /* 768px */
+  --container-lg: 64rem; /* 1024px */
+  --container-xl: 80rem; /* 1280px */
+  --container-2xl: 90rem; /* 1440px */
+  --container-3xl: 100rem; /* 1600px */
+  --container-4xl: 120rem; /* 1920px */
 }
 
 /* Custom Utility Classes */
