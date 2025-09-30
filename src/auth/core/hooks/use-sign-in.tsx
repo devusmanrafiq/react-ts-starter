@@ -10,10 +10,8 @@ const useSignIn = () => {
   const { saveAuth, setCurrentUser } = useAuth();
 
   const {
-    mutate: loginMutate,
-    isError: isLoginError,
-    error: loginError,
-    isPending: isLoginPending,
+    mutate,
+    isPending,
     isSuccess: isLoginSuccess,
     data: loginData,
   } = useMutation({
@@ -38,11 +36,8 @@ const useSignIn = () => {
   }, [isLoginSuccess, loginData, verifyTokenMutate, saveAuth, setCurrentUser]);
 
   return {
-    mutate: loginMutate,
-    isError: isLoginError,
-    error: loginError,
-    isPending: isLoginPending,
-    isPendingVerifyToken: isVerifyTokenPending,
+    loginMutate: mutate,
+    isPendingLogin: isPending || isVerifyTokenPending,
   };
 };
 
