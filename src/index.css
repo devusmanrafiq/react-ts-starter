@@ -58,7 +58,7 @@ p {
   --breakpoint-3xl: 100rem; /* 1600px */
   --breakpoint-4xl: 120rem; /* 1920px */
 
-    /* Container Size */
+  /* Container Size */
   --container-2xs: 20rem; /* 320px */
   --container-xs: 24rem; /* 384px */
   --container-sm: 30rem; /* 480px */
