@@ -3,4 +3,6 @@ dist
 
 # env files (can opt-in for committing if needed)
 envs
-.env*
+.env.*
+*.env
+.env
