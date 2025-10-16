@@ -1,6 +1,5 @@
 import js from '@eslint/js';
 import tsParser from '@typescript-eslint/parser';
-// @ts-expect-error - No type definitions available
 import eslintComments from 'eslint-plugin-eslint-comments';
 import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
