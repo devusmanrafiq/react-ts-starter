@@ -16,7 +16,14 @@ export default [
   ...tseslint.configs.recommended,
   reactHooks.configs['recommended-latest'],
   reactRefresh.configs.vite,
-  globalIgnores(['dist', 'commitlint.config.cjs', 'node_modules']),
+  globalIgnores([
+    'dist',
+    'commitlint.config.cjs',
+    'node_modules',
+    'vite.config.ts',
+    'tsconfig.json',
+    'tsconfig.node.json',
+  ]),
   {
     files: ['src/**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
