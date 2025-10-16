@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+npx --no-install commitlint --edit "$1" || {
+    echo ""
+    echo "❌ Commit message validation failed!"
+    echo "ℹ️  Please use the Conventional Commits format:"
+    echo ""
+    echo "   <type>(<scope>): <subject>"
+    echo ""
+    echo "   Valid types:"
+    echo "     - feat: A new feature"
+    echo "     - fix: A bug fix"
+    echo "     - docs: Documentation changes"
+    echo "     - style: Code formatting changes"
+    echo "     - refactor: Code refactoring"
+    echo "     - perf: Performance improvements"
+    echo "     - test: Adding or fixing tests"
+    echo "     - build: Build system changes"
+    echo "     - ci: Continuous Integration changes"
+    echo "     - chore: Other changes"
+    echo "     - revert: Reverting a previous commit"
+    echo ""
+    echo "✅ Example: feat(auth): add user login feature"
+    exit 1
+}
