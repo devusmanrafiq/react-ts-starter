@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import config from 'configs/default.ts';
+import { config } from 'configs/index.ts';
 
 import App from './App.tsx';
 
