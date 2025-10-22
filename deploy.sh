@@ -4,9 +4,9 @@ currentBranch=$(git branch --show-current);
 
 echo "Current Branch: $currentBranch";
 
-if [ $currentBranch != "master" ]
+if [ $currentBranch != "main" ]
 then
-    echo "Invalid branch checked out for this master"
+    echo "Invalid branch checked out. Only 'main' branch is allowed."
     exit 2;
 fi
 
@@ -19,15 +19,20 @@ echo "Remote: $remote";
 
 if [ $local != $remote ]
 then
-    echo "Make sure your local branch that has been selected for deployment is the same as the remote branch."
+    echo "Local and remote branches are not in sync."
     exit 2;
 fi
 
+echo "Copying .env.prod to .env..."
 cp envs/.env.prod .env
+
+echo "Installing dependencies..."
 yarn install
+
+echo "Building the project..."
 npm run build:prod
+
 aws s3 sync  --profile [aws-configs-profile-name] ./dist s3://[bucket-name]
 aws cloudfront create-invalidation --profile aws-configs-profile-name --distribution-id [id] --paths "/*"
-cp envs/.env.local .env
 
 # Replace with your own configs, [aws-configs-profile-name], [bucket-name], [id]
