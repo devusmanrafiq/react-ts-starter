@@ -1,5 +1,10 @@
 # This script is used to deploy the application to AWS S3 and invalidate the CloudFront cache.
 
+# Load nvm and use the version specified in .nvmrc
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm use
+
 currentBranch=$(git branch --show-current);
 
 echo "Current Branch: $currentBranch";
