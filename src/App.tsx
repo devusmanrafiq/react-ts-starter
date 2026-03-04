@@ -1,3 +1,4 @@
+import { StyleProvider } from '@ant-design/cssinjs';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ConfigProvider } from 'antd';
@@ -15,16 +16,18 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <AuthInit>
-          <ConfigProvider
-            theme={{
-              token: {
-                fontFamily: 'Poppins',
-              },
-              components: {},
-            }}
-          >
-            <Router />
-          </ConfigProvider>
+          <StyleProvider layer>
+            <ConfigProvider
+              theme={{
+                token: {
+                  fontFamily: 'Poppins',
+                },
+                components: {},
+              }}
+            >
+              <Router />
+            </ConfigProvider>
+          </StyleProvider>
         </AuthInit>
       </AuthProvider>
       <ReactQueryDevtools initialIsOpen={false} buttonPosition='bottom-left' />
