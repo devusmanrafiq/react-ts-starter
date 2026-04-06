@@ -21,7 +21,10 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
-    "baseUrl": "src"
+     /* Paths */
+    "paths": {
+      "*": ["./src/*"]
+    }
   },
   "include": ["vite.config.ts", "eslint.config.js", "src"],
   "references": [{ "path": "./tsconfig.node.json" }]
