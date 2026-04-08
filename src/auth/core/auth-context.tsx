@@ -12,6 +12,8 @@ import {
   useState,
 } from 'react';
 
+import CustomLoader from 'components/custom-loader';
+
 import { IAuthModel, IUserModel } from './_models';
 import { getUserByToken } from './_requests';
 import * as authHelper from './auth-helpers';
@@ -101,7 +103,7 @@ function AuthInit({ children }: IProps) {
     }
   }, [auth, logout, setCurrentUser]);
 
-  return showSplashScreen ? <div>Loading...</div> : children;
+  return showSplashScreen ? <CustomLoader /> : children;
 }
 
 export { AuthProvider, useAuth, AuthInit };
